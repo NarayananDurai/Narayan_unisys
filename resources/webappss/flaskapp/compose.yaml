@@ -1,6 +1,13 @@
 version: '3.8'
 
 services:
+  Narayandb:
+    image: mysql:8.0
+    container_name: Narayandbc1
+    environment:
+      MYSQL_ROOT_PASSWORD: Hello@12345
+      MYSQL_DATABASE: ashutestdb
+
   web:
     build: .
     ports:
@@ -13,14 +20,6 @@ services:
       MYSQL_DATABASE: testdb
     depends_on:
       - db
-
-  db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: Example12345
-      MYSQL_DATABASE: testdb
-    volumes:
-      - mysql_data:/var/lib/mysql
 
 volumes:
   mysql_data:
