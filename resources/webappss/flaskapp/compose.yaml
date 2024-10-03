@@ -1,22 +1,23 @@
 version: '3.8'
 
 services:
-  Narayandb:
+  narayandb:
     image: mysql:8.0
-    container_name: Narayandbc1
+    container_name: narayandbc1
     environment:
       MYSQL_ROOT_PASSWORD: Hello@12345
       MYSQL_DATABASE: ashutestdb
 
-  web:
+  Narayanwebflaskapp:
+    image: narayanflask:webappv1
     build: .
     ports:
-      - "5000:5000"
+      - "5051cd:5000"
     environment:
       FLASK_ENV: development
-      MYSQL_HOST: db
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: example
+      MYSQL_HOST: narayandb # db server name
+      MYSQL_USER: root #db user name
+      MYSQL_PASSWORD: example # db password
       MYSQL_DATABASE: testdb
     depends_on:
       - db
