@@ -7,7 +7,7 @@ pipeline {
                 // using echo to print message 
                 echo 'we are now fetching github code in below'
                 // using git to download git repo 
-                git branch: 'master', url: 'https://github.com/NarayananDurai/Narayan_unisys.git'
+                git branch: 'main', url: 'https://github.com/NarayananDurai/Narayan_unisys.git'
                 // using sh command to run some commands
                 sh 'ls '
             }
