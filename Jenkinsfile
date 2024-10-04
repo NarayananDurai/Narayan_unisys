@@ -28,8 +28,8 @@ pipeline {
             steps {
                 echo 'running docker compose'
                 sh 'cd resources/webappss/flaskapp && docker-compose down'
-                sh 'resources/webappss/flaskapp && docker-compose up -d --build'
-                sh 'resources/webappss/flaskapp && docker-compose ps'
+                sh 'cd resources/webappss/flaskapp && docker-compose up -d --build'
+                sh 'cd resources/webappss/flaskapp && docker-compose ps'
                 sh 'curl -f http://localhost:3031'
             }
             
