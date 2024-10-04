@@ -27,9 +27,9 @@ pipeline {
         stage('compsoe for build and curl for app status test') {
             steps {
                 echo 'running docker compose'
-                sh 'cd docker-compose down'
-                sh 'docker-compose up -d --build'
-                sh 'docker-compose ps'
+                sh 'cd resources/webappss/flaskapp && docker-compose down'
+                sh 'resources/webappss/flaskapp && docker-compose up -d --build'
+                sh 'resources/webappss/flaskapp && docker-compose ps'
                 sh 'curl -f http://localhost:3031'
             }
             
@@ -38,7 +38,7 @@ pipeline {
         stage('building image and pushing it') {
             steps {
                 echo 'using docker pipeline plugin to build and push image'
-                sh 'cp -rf resources/webappss/flaskapp/*  . '
+                sh 'cp -rf resources/webappss/flaskapp/* .'
                 script {
                     def imageName = "narann/flaskday4"
                     def imageTag  = "appversion$BUILD_NUMBER"
