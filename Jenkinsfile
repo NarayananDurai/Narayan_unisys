@@ -38,7 +38,7 @@ pipeline {
         stage('building image and pushing it') {
             steps {
                 echo 'using docker pipeline plugin to build and push image'
-                sh 'cp ./resources/webappss/flaskapp .'
+                sh 'cp -v resources/webappss/flaskapp/ .'
                 script {
                     def imageName = "narann/flaskday4"
                     def imageTag  = "appversion$BUILD_NUMBER"
