@@ -31,7 +31,7 @@ pipeline {
             steps {
                 echo 'using docker pipeline plugin to build and push image'
                 script {
-                    def imageName = "narann/NarayanC3"
+                    def imageName = "narann/narayanc5"
                     def imageTag  = "appversion$BUILD_NUMBER"
                     def naraCred = "b58af617-86ca-485d-b33d-7ce908a1ae9c"
                     // building image 
