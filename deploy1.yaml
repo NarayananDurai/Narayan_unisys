@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: narayan-tomcat
+  name: narayan-tomcat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: narayan-tomcat
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: narayan-tomcat
+    spec:
+      containers:
+      - image: narann/narayanc5:appversion24
+        name: narayanc5
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}

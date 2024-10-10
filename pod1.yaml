@@ -1,11 +1,11 @@
 apiVersion: v1
-Kind: Pod
+kind: Pod
 metadata:
   name: narayanpod1
 spec:
   containers:
-    - name: narayanc5
-    image: narayanjavaboot:tomcatv1
+  - name: narayanc5
+    image: narann/narayanc5:appversion24
     ports:
-      containerPort: 8080
+    - containerPort: 8080
 
