@@ -55,6 +55,10 @@ pipeline {
                 sh 'kubectl get deploy,pod,service'
             }
         }
-
+        stage('upgrade '){
+            steps{
+                sh 'kubectl set image deployment narayan-tomcat'
+            }
+        }
     }
 }
