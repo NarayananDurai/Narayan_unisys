@@ -41,8 +41,13 @@ pipeline {
                         docker.image(imageName + ":" + imageTag).push()
                     }
                 }
+            }            
+        }
+        stage ('check connection with kubectl to AKS'){
+            steps{
+                sh 'kubectl version'
+                sh 'kubectl get nodes'
             }
-            
         }
     }
 }
