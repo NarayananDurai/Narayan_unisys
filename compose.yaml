@@ -1,27 +1,11 @@
-version: '3.8'
-
+version: '3.9'
 services:
-  narayandb:
-    image: mysql:8.0
-    container_name: narayandbc1
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: testdb
-
-  Narayanwebflaskapp:
-    image: narayanflask:webappv1
-    build: .
+  narayanspringboot:
+    image: narayanspring:tomcatv1  # if this image is not present then only it will build
+    build:
+      context: .  # location of dockerfile
+      dockerfile:  Dockerfile # name of dockerfile
+    container_name: NarayanC1
     ports:
-      - "3031:5000"
-    environment:
-      FLASK_ENV: development
-      MYSQL_HOST: narayandb # db server name
-      MYSQL_USER: root #db user name
-      MYSQL_PASSWORD: example # db password
-      MYSQL_DATABASE: testdb
-    depends_on:
-      - narayandb
-
-volumes:
-  mysql_data:
-  
+    - 3033:8080  
+# above steps have merging of build and run
