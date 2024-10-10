@@ -9,4 +9,4 @@ RUN mvn clean package
 
 FROM tomcat
 LABEL Email="Narayanan.durai@unisys.com"
-COPY --from=warfileBuilder  /ashu-java/java-springboot/target/WebApp.war /usr/local/tomcat/webapps/
+COPY --from=warfileBuilder  /ashu-java/target/WebApp.war /usr/local/tomcat/webapps/
