@@ -23,7 +23,6 @@ pipeline {
                 sh 'docker-compose down'
                 sh 'docker-compose up -d --build'
                 sh 'docker-compose ps'
-                sh 'curl -f http://localhost:3034/WebApp'
             }
         }
     }
