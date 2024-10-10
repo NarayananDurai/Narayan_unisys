@@ -25,5 +25,24 @@ pipeline {
                 sh 'docker-compose ps'
             }
         }
+
+        // using docker pipeline to build and push 
+        stage('building image and pushing it') {
+            steps {
+                echo 'using docker pipeline plugin to build and push image'
+                script {
+                    def imageName = "narann/NarayanC3"
+                    def imageTag  = "appversion$BUILD_NUMBER"
+                    def naraCred = "b58af617-86ca-485d-b33d-7ce908a1ae9c"
+                    // building image 
+                    docker.build(imageName + ":" + imageTag , " -f Dockerfile .")
+                    // pushing image 
+                    docker.withRegistry('https://registry.hub.docker.com',naraCred){
+                        docker.image(imageName + ":" + imageTag).push()
+                    }
+                }
+            }
+            
+        }
     }
 }
