@@ -5,7 +5,7 @@ services:
     build:
       context: .  # location of dockerfile
       dockerfile:  Dockerfile # name of dockerfile
-    container_name: NarayanC2
+    container_name: NarayanC3
     ports:
     - 3034:8080  
 # above steps have merging of build and run
