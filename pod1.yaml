@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: narayanc5
-    image: narayan/narayanflask3
+    image: narayanjavaboot:tomcatv1
     ports:
       containerPort: 8080
 
