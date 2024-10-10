@@ -17,5 +17,14 @@ pipeline {
                 sh 'trivy  fs --scanners  vuln,secret,misconfig  .'
             }
         }
+        stage ('compose for build'){
+            steps {
+                echo 'docker-compose running'
+                sh 'docker-compose down'
+                sh 'docker-compose up -d --build'
+                sh 'docker-compose ps'
+                sh 'curl -f http://localhost:3034/WebApp'
+            }
+        }
     }
 }
