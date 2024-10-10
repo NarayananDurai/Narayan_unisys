@@ -57,7 +57,7 @@ pipeline {
         }
         stage('upgrade '){
             steps{
-                sh 'kubectl set image deployment narayan-tomcat'
+                sh 'kubectl set image deployment narayan-tomcat narayanc5=narann/narayanc5:appversion$BUILD_NUMBER'
             }
         }
     }
