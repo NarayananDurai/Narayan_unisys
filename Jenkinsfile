@@ -49,5 +49,12 @@ pipeline {
                 sh 'kubectl get nodes'
             }
         }
+        stage ('Deploy yaml using kubectl'){
+            steps{
+                sh 'kubectl apply -f deploy1.yaml'
+                sh 'kubectl get deploy,pod,service'
+            }
+        }
+
     }
 }
